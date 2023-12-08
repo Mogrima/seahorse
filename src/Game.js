@@ -33,11 +33,10 @@ class Game {
     }
 
     update(deltaTime) {
-        console.log(this.enemies);
         if (!this.gameOver) this.gameTime += deltaTime;
         if (this.gameTime > this.timeLimit) this.gameOver = true;
 
-        this.player.update();
+        this.player.update(deltaTime);
         this.background.update();
         this.background.layer4.update();
         
@@ -54,6 +53,8 @@ class Game {
             if (this.checkCollision(this.player, enemy)) {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
+                if (enemy.type == 'lucky') this.player.enterPowerUp();
+                else this.score--;  
             }
             // для всех активных пуль (projectiles) также проверим условие столкновения
             // пули с врагом. 
@@ -63,7 +64,7 @@ class Game {
                     // если столкновение произошло, помечаем снаряд как удаленный
                     projectile.markedForDeletion = true;
                     if (enemy.lives <= 0) {        
-                        enemy.markedForDeletion = true; // удаляем врага        
+                        enemy.markedForDeletion = true; // удаляем врага      
                         if (!this.gameOver) this.score += enemy.score; // увеличиваем количество очков главного игрока       
                         if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
@@ -83,8 +84,9 @@ class Game {
 
     addEnemy() {
         const randomize = Math.random();
-        if (randomize < 0.5) this.enemies.push(new Angler1(this))
-        else this.enemies.push(new Angler2(this));
+        if (randomize < 0.3) this.enemies.push(new Angler1(this));
+        else if (randomize < 0.6) this.enemies.push(new Angler2(this))
+        else this.enemies.push(new LuckyFish(this));
         
     }
 
