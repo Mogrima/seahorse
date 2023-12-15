@@ -30,7 +30,7 @@ class Game {
 
         this.particles = [];
 
-        this.debug = true;
+        this.debug = false;
         
     }
 
@@ -62,7 +62,7 @@ class Game {
                 for(let i = 0; i < 10; i++) {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 }  
-                if (enemy.type == 'lucky') this.player.enterPowerUp();
+                if (enemy.type === 'lucky') this.player.enterPowerUp();
                 else this.score--;  
             }
             // для всех активных пуль (projectiles) также проверим условие столкновения
@@ -118,9 +118,9 @@ class Game {
     draw(context) {
         this.background.draw(context);
         this.ui.draw(context);
+        this.player.draw(context);
         this.particles.forEach(particle => particle.draw(context));
         context.fillStyle = 'black';
-        this.player.draw(context);
         this.enemies.forEach(enemy => enemy.draw(context));
         this.background.layer4.draw(context);
 
