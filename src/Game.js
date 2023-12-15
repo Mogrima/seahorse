@@ -28,6 +28,8 @@ class Game {
         this.speed = 1;
         this.background = new Background(this);
 
+        this.particles = [];
+
         this.debug = true;
         
     }
@@ -47,12 +49,19 @@ class Game {
             this.ammoTimer += deltaTime;
         }
 
+        this.particles.forEach(particle => particle.update());
+        this.particles = this.particles.filter(particle => !particle.markedForDeletion);
+        
+
         this.enemies.forEach(enemy => {
             enemy.update();
             // Проверим, не столкнолся ли враг с главным игроком (player)
             if (this.checkCollision(this.player, enemy)) {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
+                for(let i = 0; i < 10; i++) {
+                    this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+                }  
                 if (enemy.type == 'lucky') this.player.enterPowerUp();
                 else this.score--;  
             }
@@ -62,9 +71,13 @@ class Game {
                 if (this.checkCollision(projectile, enemy)) {
                     enemy.lives--; // уменьшаем жизни врага на единицу
                     // если столкновение произошло, помечаем снаряд как удаленный
+                    this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                     projectile.markedForDeletion = true;
                     if (enemy.lives <= 0) {        
-                        enemy.markedForDeletion = true; // удаляем врага      
+                        enemy.markedForDeletion = true; // удаляем врага  
+                        for(let i = 0; i < 10; i++) {
+                            this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+                        }   
                         if (!this.gameOver) this.score += enemy.score; // увеличиваем количество очков главного игрока       
                         if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
@@ -105,6 +118,7 @@ class Game {
     draw(context) {
         this.background.draw(context);
         this.ui.draw(context);
+        this.particles.forEach(particle => particle.draw(context));
         context.fillStyle = 'black';
         this.player.draw(context);
         this.enemies.forEach(enemy => enemy.draw(context));
