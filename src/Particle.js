@@ -22,7 +22,7 @@ class Particle {
         this.va = Math.random() * 0.2 - 0.1;
         // кол-во отскоков
         this.bounced = 0;
-        this.bottomBounceBoundary = Math.random() * 100 + 60;
+        this.bottomBounceBoundary = Math.random() * 80 + 60;
     }
 
     update() {
