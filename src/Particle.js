@@ -30,7 +30,7 @@ class Particle {
         this.angle += this.va;
         // вертикальная скорость уменьшается под гравитацией
         this.speedY += this.gravity;
-        this.x -= this.speedX;
+        this.x -= this.speedX + this.game.speed;
         this.y += this.speedY;
         if (this.y > this.game.height + this.size || this.x < 0 - this.size) {
             this.markedForDeletion = true;
@@ -42,6 +42,15 @@ class Particle {
         }
     }
     draw(context) {
-        context.drawImage(this.image, this.frameX * this.spriteSize, this.frameY * this.spriteSize, this.spriteSize, this.spriteSize, this.x, this.y, this.size, this.size);
+        context.save();
+        // чтобы повернуть что-нибудь на холсте нам нужно сначала переместить
+        // центральную точку вращения, которая обычно считается (0, 0) верхний левый угол
+        // переносим ее поверх текущей частицы
+        context.translate(this.x, this.y);
+        context.rotate(this.angle);
+        // меняем this.x, this.y на 0 и 0, потому что положение это частицы уже определено в translate
+        context.drawImage(this.image, this.frameX * this.spriteSize, this.frameY * this.spriteSize, 
+            this.spriteSize, this.spriteSize, this.size * -0.5, this.size * -0.5, this.size, this.size);
+        context.restore();
     }
 }
