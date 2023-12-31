@@ -59,7 +59,7 @@ class Game {
             if (this.checkCollision(this.player, enemy)) {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
-                for(let i = 0; i < 10; i++) {
+                for(let i = 0; i < enemy.score; i++) {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 }  
                 if (enemy.type === 'lucky') this.player.enterPowerUp();
@@ -82,7 +82,7 @@ class Game {
                                      enemy.y + Math.random() * enemy.height * 0.5));
                             }
                         }
-                        for(let i = 0; i < 10; i++) {
+                        for(let i = 0; i < enemy.score; i++) {
                             this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                         }   
                         if (!this.gameOver) this.score += enemy.score; // увеличиваем количество очков главного игрока       
