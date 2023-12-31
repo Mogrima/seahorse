@@ -75,6 +75,13 @@ class Game {
                     projectile.markedForDeletion = true;
                     if (enemy.lives <= 0) {        
                         enemy.markedForDeletion = true; // удаляем врага  
+                        if(enemy.type === "hive") {
+                            for(let i = 0; i < 5; i++) {
+                                this.enemies.push(new Drone(this, 
+                                    enemy.x + Math.random() * enemy.width,
+                                     enemy.y + Math.random() * enemy.height * 0.5));
+                            }
+                        }
                         for(let i = 0; i < 10; i++) {
                             this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                         }   
