@@ -7,7 +7,7 @@ class HiveWhale extends Enemy {
         this.image = document.getElementById('hivewhale');
         this.frameY = 0;
 
-        this.lives = 15;
+        this.lives = 20;
         this.score = this.lives;
         this.type = 'hive';
         this.speedX = Math.random() * -1.2 - 0.2;

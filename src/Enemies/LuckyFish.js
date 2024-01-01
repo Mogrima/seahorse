@@ -7,7 +7,7 @@ class LuckyFish extends Enemy {
         this.image = document.getElementById('lucky');
         this.frameY =   Math.floor(Math.random() * 2);
 
-        this.lives = 3;
+        this.lives = 5;
         this.score = 15;
         this.type = 'lucky';
     }

@@ -9,7 +9,7 @@ class Game {
 
         this.ammo = 20;
 
-        this.ammoInterval = 500;
+        this.ammoInterval = 300;
         this.maxAmmo = 20;
         this.ammoTimer = 0;
 
@@ -17,13 +17,13 @@ class Game {
 
         this.enemies = [];
         this.enemyTimer = 0;
-        this.enemyInterval = 1000;
+        this.enemyInterval = 2000;
         this.gameOver = false;
         this.score = 0;
-        this.winningScore = 30;
+        this.winningScore = 80;
 
         this.gameTime = 0;
-        this.timeLimit = 40 * 1000;
+        this.timeLimit = 30000;
 
         this.speed = 1;
         this.background = new Background(this);
@@ -69,7 +69,7 @@ class Game {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 }  
                 if (enemy.type === 'lucky') this.player.enterPowerUp();
-                else this.score--;  
+                else if (!this.gameOver) this.score--;  
             }
             // для всех активных пуль (projectiles) также проверим условие столкновения
             // пули с врагом. 
@@ -93,7 +93,7 @@ class Game {
                             this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                         }   
                         if (!this.gameOver) this.score += enemy.score; // увеличиваем количество очков главного игрока       
-                        if (this.isWin()) this.gameOver = true;  // проверяем условие победы
+                        // if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
                 }
             })
@@ -113,7 +113,7 @@ class Game {
         const randomize = Math.random();
         if (randomize < 0.3) this.enemies.push(new Angler1(this));
         else if (randomize < 0.6) this.enemies.push(new Angler2(this));
-        else if (randomize < 0.8) this.enemies.push(new HiveWhale(this));
+        else if (randomize < 0.7) this.enemies.push(new HiveWhale(this));
         else this.enemies.push(new LuckyFish(this));
         
     }

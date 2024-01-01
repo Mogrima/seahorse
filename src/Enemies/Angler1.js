@@ -7,7 +7,7 @@ class Angler1 extends Enemy {
         this.image = document.getElementById('angler1');
         this.frameY =   Math.floor(Math.random() * 3);
 
-        this.lives = 2;
+        this.lives = 6;
         this.score = this.lives;
     }
 }
