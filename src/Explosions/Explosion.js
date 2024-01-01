@@ -1,11 +1,13 @@
 class Explosion {
     constructor(game, x, y) {
         this.game = game;
-        this.x = x;
-        this.y = y;
         this.frameX = 0;
-        // у всех фреймов анимации одинаковая высота, но будет разная ширина
+        this.spriteWidth = 200;
         this.spriteHeight = 200;
+        this.width = this.spriteWidth;
+        this.height = this.spriteHeight;
+        this.x = x - this.width * 0.5;
+        this.y = y - this.height * 0.5;
         // увеличим время анимации каждого кадра, так как количество фреймов достаточно маленькое
         // фактически сами задаем количество кадров анимации, например, уменьшая его, если кол-во
         // фреймов недостаточно, а общее число кадров игры, заданное в deltatime больше
