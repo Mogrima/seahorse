@@ -30,6 +30,8 @@ class Game {
 
         this.particles = [];
 
+        this.explosions = [];
+
         this.debug = false;
         
     }
@@ -51,6 +53,9 @@ class Game {
 
         this.particles.forEach(particle => particle.update());
         this.particles = this.particles.filter(particle => !particle.markedForDeletion);
+
+        this.explosions.forEach(explosion => explosion.update(deltaTime));
+        this.explosions = this.explosions.filter(explosion => !explosion.markedForDeletion);
         
 
         this.enemies.forEach(enemy => {
@@ -59,6 +64,7 @@ class Game {
             if (this.checkCollision(this.player, enemy)) {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
+                this.addExplosion(enemy);
                 for(let i = 0; i < enemy.score; i++) {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 }  
@@ -74,7 +80,8 @@ class Game {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                     projectile.markedForDeletion = true;
                     if (enemy.lives <= 0) {        
-                        enemy.markedForDeletion = true; // удаляем врага  
+                        enemy.markedForDeletion = true; // удаляем врага 
+                        this.addExplosion(enemy); 
                         if(enemy.type === "hive") {
                             for(let i = 0; i < 5; i++) {
                                 this.enemies.push(new Drone(this, 
@@ -111,6 +118,12 @@ class Game {
         
     }
 
+    addExplosion(enemy) {
+        const randomize = Math.random();
+        if (randomize < 1) this.explosions.push(new 
+            SmokeExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+    }
+
     checkCollision(rect1, rect2) {
         return (
             rect1.x < rect2.x + rect2.width &&
@@ -130,6 +143,7 @@ class Game {
         this.particles.forEach(particle => particle.draw(context));
         context.fillStyle = 'black';
         this.enemies.forEach(enemy => enemy.draw(context));
+        this.explosions.forEach(explosion => explosion.draw(context));
         this.background.layer4.draw(context);
 
     }
