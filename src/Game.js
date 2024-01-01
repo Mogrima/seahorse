@@ -120,8 +120,10 @@ class Game {
 
     addExplosion(enemy) {
         const randomize = Math.random();
-        if (randomize < 1) this.explosions.push(new 
+        if (randomize < 0.5) this.explosions.push(new 
             SmokeExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+        else this.explosions.push(new 
+            FireExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
     }
 
     checkCollision(rect1, rect2) {
