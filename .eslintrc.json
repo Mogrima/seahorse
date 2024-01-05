@@ -12,6 +12,8 @@
     "rules": {
     "no-var": "error",
     "semi": "error",
+    "no-undef": "warn",
+    "no-unused-vars": "warn",
     "space-in-parens": "error",
     "prefer-const": "error",
     "no-use-before-define": "error",
