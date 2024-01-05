@@ -14,21 +14,21 @@ class Projectile {
         this.markedForDeletion = false;
         this.image = document.getElementById('projectile');
     }
-  
+
     update() {
         this.x += this.speed;
         if (this.x > this.game.width * 0.8) this.markedForDeletion = true;
 
-        if(this.frameX < this.maxFrame) {
+        if (this.frameX < this.maxFrame) {
             this.frameX++;
         } else {
             this.frameX = 0;
         }
     }
-  
+
     draw(context) {
-        context.drawImage(this.image, 
+        context.drawImage(this.image,
             this.frameX * this.spriteWidth, this.frameY * this.spriteHeight,
             this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
-    } 
+    }
 }

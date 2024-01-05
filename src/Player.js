@@ -19,7 +19,7 @@ class Player {
         this.powerUpLimit = 10000;
 
     }
-   
+
     update(deltaTime) {
         this.y += this.speedY;
 
@@ -28,22 +28,24 @@ class Player {
         else this.speedY = 0;
         // vertical boundaries
         if (this.y > this.game.height - this.height * 0.5) this.y = this.game.
-        height - this.height * 0.5;
+            height - this.height * 0.5;
         else if (this.y < -this.height * 0.5) this.y = -this.height * 0.5;
 
         // handle projectiles
-        this.projectiles.forEach(pr => { pr.update(); });
+        this.projectiles.forEach(pr => {
+            pr.update();
+        });
         this.projectiles = this.projectiles.filter(pr => !pr.markedForDeletion);
 
         // sprite animation
-        if(this.frameX < this.maxFrame) {
+        if (this.frameX < this.maxFrame) {
             this.frameX++;
-        }  else {
+        } else {
             this.frameX = 0;
         }
         // power up
         if (this.powerUp) {
-            if(this.powerUpTimer > this.powerUpLimit) {
+            if (this.powerUpTimer > this.powerUpLimit) {
                 this.powerUpTimer = 0;
                 this.powerUp = false;
                 this.frameY = 0;
@@ -58,10 +60,12 @@ class Player {
     draw(context) {
         // hitbox player
         if (this.game.debug) context.strokeRect(this.x, this.y, this.width, this.height);
-        
+
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
             this.width, this.height, this.x, this.y, this.width, this.height);
-        this.projectiles.forEach(pr => { pr.draw(context); });
+        this.projectiles.forEach(pr => {
+            pr.draw(context);
+        });
     }
 
     shootTop() {
@@ -69,7 +73,7 @@ class Player {
             this.projectiles.push(new Projectile(this.game, this.x + 60, this.y - 30));
             this.game.ammo--;
         }
-        if(this.powerUp) this.shootBottom();
+        if (this.powerUp) this.shootBottom();
     }
 
     shootBottom() {
@@ -83,4 +87,4 @@ class Player {
         this.powerUp = true;
         this.game.ammo = this.game.maxAmmo;
     }
-} 
+}

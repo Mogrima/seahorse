@@ -49,7 +49,7 @@ class Particle {
         context.translate(this.x, this.y);
         context.rotate(this.angle);
         // меняем this.x, this.y на 0 и 0, потому что положение это частицы уже определено в translate
-        context.drawImage(this.image, this.frameX * this.spriteSize, this.frameY * this.spriteSize, 
+        context.drawImage(this.image, this.frameX * this.spriteSize, this.frameY * this.spriteSize,
             this.spriteSize, this.spriteSize, this.size * -0.5, this.size * -0.5, this.size, this.size);
         context.restore();
     }

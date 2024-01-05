@@ -15,10 +15,10 @@ class UI {
         context.font = this.fontSize + 'px ' + this.fontFamily;
         // очки
         context.fillText('Score: ' + this.game.score, 20, 40);
-         // таймер
-         const formattedTime = (this.game.gameTime * 0.001).toFixed(1);
-         context.fillText('Timer: ' + formattedTime, 20, 100);
-                 // FPS
+        // таймер
+        const formattedTime = (this.game.gameTime * 0.001).toFixed(1);
+        context.fillText('Timer: ' + formattedTime, 20, 100);
+        // FPS
         context.fillText('FPS: ' + this.game.fpsCount, 20, 130);
         // сообщения о победе или проигрыше
         if (this.game.gameOver) {
@@ -38,7 +38,7 @@ class UI {
             context.fillText(message2, this.game.width * 0.5, this.game.height * 0.5 + 20);
         }
 
-        if(this.game.player.powerUp) {
+        if (this.game.player.powerUp) {
             context.fillStyle = '#ffffbd';
         }
         for (let i = 0; i < this.game.ammo; i++) {

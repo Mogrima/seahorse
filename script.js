@@ -3,8 +3,8 @@ window.addEventListener('load', function () {
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
     canvas.width = 1500;
-    canvas.height = 500;     
-    
+    canvas.height = 500;
+
     const game = new Game(canvas.width, canvas.height);
     let lastTime = 0;
 
