@@ -33,12 +33,27 @@ class Game {
         this.explosions = [];
 
         this.debug = false;
+
+        this.intervalFpsDisplay = 3000;
+        this.timerFpsDisplay = 0;
+        this.fpsCount = 0;
         
     }
 
     update(deltaTime) {
         if (!this.gameOver) this.gameTime += deltaTime;
         if (this.gameTime > this.timeLimit) this.gameOver = true;
+
+        // FPS
+        if (this.fpsCount === 0 && deltaTime !== 0) {
+            this.fpsCount = Math.floor(1000 / deltaTime);
+        }
+        if (this.timerFpsDisplay > this.intervalFpsDisplay) {
+            this.fpsCount = Math.floor(1000 / deltaTime);
+            this.timerFpsDisplay = 0;
+        } else {
+            this.timerFpsDisplay += deltaTime;
+        }
 
         this.player.update(deltaTime);
         this.background.update();
