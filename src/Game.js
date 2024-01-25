@@ -1,6 +1,7 @@
 import { Player } from './Player.js';
 import { InputHandler } from './InputHandler.js';
 import { UI } from './UI/UI.js';
+import { SoundController } from './SoundController.js';
 import { Particle } from './Particle.js';
 import { Shield } from './Shield.js';
 import { Angler1 } from './Enemies/Angler1.js';
@@ -32,6 +33,7 @@ export class Game {
         this.ammoTimer = 0;
 
         this.ui = new UI(this);
+        this.sound = new SoundController();
 
         this.enemies = [];
         this.enemyTimer = 0;
@@ -100,6 +102,7 @@ export class Game {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
                 this.addExplosion(enemy);
+                this.sound.hit();
                 this.shield.reset();
                 for (let i = 0; i < enemy.score; i++) {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
@@ -118,6 +121,7 @@ export class Game {
                     if (enemy.lives <= 0) {
                         enemy.markedForDeletion = true; // удаляем врага
                         this.addExplosion(enemy);
+                        this.sound.explosion();
 
                         if (enemy.type === 'moonfish') this.player.enterPowerUp();
 
