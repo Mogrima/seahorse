@@ -9,6 +9,7 @@ import { Drone } from './Enemies/Drone.js';
 import { HiveWhale } from './Enemies/HiveWhale.js';
 import { LuckyFish } from './Enemies/LuckyFish.js';
 import { Stalker } from './Enemies/Stalker.js';
+import { BulbWhale } from './Enemies/BulbWhale.js';
 import { FireExplosion } from './Explosions/FireExplosion.js';
 import { SmokeExplosion } from './Explosions/SmokeExplosion.js';
 import { Background } from './UI/Background.js';
@@ -149,6 +150,7 @@ export class Game {
         else if (randomize < 0.3) this.enemies.push(new Stalker(this));
         else if (randomize < 0.6) this.enemies.push(new Angler2(this));
         else if (randomize < 0.7) this.enemies.push(new HiveWhale(this));
+        else if (randomize < 0.8) this.enemies.push(new BulbWhale(this));
         else this.enemies.push(new LuckyFish(this));
 
     }
