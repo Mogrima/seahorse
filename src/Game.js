@@ -11,6 +11,7 @@ import { LuckyFish } from './Enemies/LuckyFish.js';
 import { Stalker } from './Enemies/Stalker.js';
 import { BulbWhale } from './Enemies/BulbWhale.js';
 import { MoonFish } from './Enemies/MoonFish.js';
+import { Razorfin } from './Enemies/Razorfin.js';
 import { FireExplosion } from './Explosions/FireExplosion.js';
 import { SmokeExplosion } from './Explosions/SmokeExplosion.js';
 import { Background } from './UI/Background.js';
@@ -119,7 +120,7 @@ export class Game {
                         this.addExplosion(enemy);
 
                         if (enemy.type === 'moonfish') this.player.enterPowerUp();
-                        
+
                         if (enemy.type === 'hive') {
                             for (let i = 0; i < 5; i++) {
                                 this.enemies.push(new Drone(this,
@@ -152,6 +153,7 @@ export class Game {
         const randomize = Math.random();
         if (randomize < 0.1) this.enemies.push(new Angler1(this));
         else if (randomize < 0.3) this.enemies.push(new Stalker(this));
+        else if (randomize < 0.5) this.enemies.push(new Razorfin(this));
         else if (randomize < 0.6) this.enemies.push(new Angler2(this));
         else if (randomize < 0.7) this.enemies.push(new HiveWhale(this));
         else if (randomize < 0.8) this.enemies.push(new BulbWhale(this));
