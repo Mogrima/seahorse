@@ -186,6 +186,19 @@ export class Game {
         return this.score >= this.winningScore;
     }
 
+    restart() {
+        this.gameOver = false;
+        this.player.restart();
+        this.score = 0;
+        this.gameTime = 0;
+        this.enemies = [];
+        this.particles = [];
+        this.explosions = [];
+        this.enemyTimer = 0;
+        this.ammoTimer = 0;
+        this.ammo = 20;
+    }
+
     draw(context) {
         this.background.draw(context);
         this.ui.draw(context);

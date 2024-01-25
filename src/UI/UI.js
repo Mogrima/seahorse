@@ -36,6 +36,7 @@ export class UI {
             context.fillText(message1, this.game.width * 0.5, this.game.height * 0.5 - 20);
             context.font = '25px ' + this.fontFamily;
             context.fillText(message2, this.game.width * 0.5, this.game.height * 0.5 + 20);
+            context.fillText('Press key "R" to restart!', this.game.width * 0.5, this.game.height * 0.5 + 80);
         }
 
         if (this.game.player.powerUp) {

@@ -92,4 +92,12 @@ export class Player {
         this.game.ammo = this.game.maxAmmo;
         this.game.sound.powerUp();
     }
+
+    restart() {
+        this.x = 20;
+        this.y = 150;
+        this.powerUp = false;
+        this.frameY = 0;
+        this.projectiles = [];
+    }
 }
