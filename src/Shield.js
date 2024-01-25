@@ -26,5 +26,6 @@ export class Shield {
     }
     reset() {
       this.frameX = 0;
+      this.game.sound.shield();
     }
   }
