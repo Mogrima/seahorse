@@ -27,6 +27,7 @@ class Game {
 
         this.speed = 1;
         this.background = new Background(this);
+        this.shield = new Shield(this);
 
         this.particles = [];
 
@@ -37,6 +38,7 @@ class Game {
         this.intervalFpsDisplay = 3000;
         this.timerFpsDisplay = 0;
         this.fpsCount = 0;
+        console.log(this.shield)
 
     }
 
@@ -58,6 +60,7 @@ class Game {
         this.player.update(deltaTime);
         this.background.update();
         this.background.layer4.update();
+        this.shield.update(deltaTime);
 
         if (this.ammoTimer > this.ammoInterval) {
             if (this.ammo < this.maxAmmo) this.ammo++;
@@ -80,6 +83,7 @@ class Game {
                 // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
                 this.addExplosion(enemy);
+                this.shield.reset();
                 for (let i = 0; i < enemy.score; i++) {
                     this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 }
@@ -158,6 +162,7 @@ class Game {
         this.background.draw(context);
         this.ui.draw(context);
         this.player.draw(context);
+        this.shield.draw(context);
         this.particles.forEach(particle => particle.draw(context));
         context.fillStyle = 'black';
         this.enemies.forEach(enemy => enemy.draw(context));
