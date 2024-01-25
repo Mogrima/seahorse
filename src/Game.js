@@ -38,7 +38,6 @@ class Game {
         this.intervalFpsDisplay = 3000;
         this.timerFpsDisplay = 0;
         this.fpsCount = 0;
-        console.log(this.shield)
 
     }
 
@@ -131,7 +130,8 @@ class Game {
 
     addEnemy() {
         const randomize = Math.random();
-        if (randomize < 0.3) this.enemies.push(new Angler1(this));
+        if (randomize < 0.1) this.enemies.push(new Angler1(this));
+        else if (randomize < 0.3) this.enemies.push(new Stalker(this));
         else if (randomize < 0.6) this.enemies.push(new Angler2(this));
         else if (randomize < 0.7) this.enemies.push(new HiveWhale(this));
         else this.enemies.push(new LuckyFish(this));

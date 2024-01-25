@@ -35,6 +35,7 @@ html {
 #drone,
 #smokeExplosion,
 #fireExplosion,
-#shield {
+#shield,
+#stalker {
     display: none;
 }
