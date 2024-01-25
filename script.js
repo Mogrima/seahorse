@@ -6,8 +6,12 @@ window.addEventListener('load', function () {
     // canvas setup
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
+    const startDisplay = this.document.getElementById('startDisplay');
+    const startButton = this.document.getElementById('startButton');
     canvas.width = 1500;
     canvas.height = 500;
+    startDisplay.width = 1500;
+    startDisplay.height = 500;
 
     const game = new Game(canvas.width, canvas.height);
     let lastTime = 0;
@@ -23,5 +27,13 @@ window.addEventListener('load', function () {
         // console.log(deltaTime);
     }
 
-    animate(0);
+    // animate(0);
+
+    function startGame() {
+        startDisplay.style.display = 'none';
+        game.restart();
+        animate(0);
+      }
+
+    startButton.addEventListener('click', startGame);
 });
