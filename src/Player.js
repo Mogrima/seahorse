@@ -51,6 +51,7 @@ export class Player {
                 this.powerUpTimer = 0;
                 this.powerUp = false;
                 this.frameY = 0;
+                this.game.sound.powerDown();
             } else {
                 this.powerUpTimer += deltaTime;
                 this.frameY = 1;
@@ -75,6 +76,7 @@ export class Player {
             this.projectiles.push(new Projectile(this.game, this.x + 60, this.y - 30));
             this.game.ammo--;
         }
+        this.game.sound.shot();
         if (this.powerUp) this.shootBottom();
     }
 
@@ -88,5 +90,6 @@ export class Player {
         this.powerUpTimer = 0;
         this.powerUp = true;
         this.game.ammo = this.game.maxAmmo;
+        this.game.sound.powerUp();
     }
 }
