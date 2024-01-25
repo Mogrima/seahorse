@@ -1,4 +1,4 @@
-class Shield {
+export class Shield {
     constructor(game) {
       this.game = game;
       this.width = this.game.player.width;

@@ -1,4 +1,4 @@
-class Explosion {
+export class Explosion {
     constructor(game, x, y) {
         this.game = game;
         this.frameX = 0;

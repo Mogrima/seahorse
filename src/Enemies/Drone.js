@@ -1,4 +1,6 @@
-class Drone extends Enemy {
+import { Enemy } from './Enemy.js';
+
+export class Drone extends Enemy {
     constructor(game, x, y) {
         super(game);
         this.width = 115;

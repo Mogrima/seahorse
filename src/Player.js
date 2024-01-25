@@ -1,4 +1,6 @@
-class Player {
+import { Projectile } from './Projectile.js';
+
+export class Player {
     constructor(game) {
         this.game = game;
         this.width = 120;

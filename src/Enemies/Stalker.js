@@ -1,4 +1,6 @@
-class Stalker extends Enemy {
+import { Enemy } from './Enemy.js';
+
+export class Stalker extends Enemy {
   constructor(game) {
     super(game);
 

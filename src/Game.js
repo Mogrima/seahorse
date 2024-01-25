@@ -1,4 +1,19 @@
-class Game {
+import { Player } from './Player.js';
+import { InputHandler } from './InputHandler.js';
+import { UI } from './UI/UI.js';
+import { Particle } from './Particle.js';
+import { Shield } from './Shield.js';
+import { Angler1 } from './Enemies/Angler1.js';
+import { Angler2 } from './Enemies/Angler2.js';
+import { Drone } from './Enemies/Drone.js';
+import { HiveWhale } from './Enemies/HiveWhale.js';
+import { LuckyFish } from './Enemies/LuckyFish.js';
+import { Stalker } from './Enemies/Stalker.js';
+import { FireExplosion } from './Explosions/FireExplosion.js';
+import { SmokeExplosion } from './Explosions/SmokeExplosion.js';
+import { Background } from './UI/Background.js';
+
+export class Game {
     constructor(width, height) {
         this.width = width;
         this.height = height;

@@ -1,3 +1,7 @@
+"use strict";
+
+import { Game } from './src/Game.js';
+
 window.addEventListener('load', function () {
     // canvas setup
     const canvas = this.document.getElementById('canvas1');

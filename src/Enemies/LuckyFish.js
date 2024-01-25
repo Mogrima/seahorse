@@ -1,4 +1,6 @@
-class LuckyFish extends Enemy {
+import { Enemy } from './Enemy.js';
+
+export class LuckyFish extends Enemy {
     constructor(game) {
         super(game);
         this.width = 99;

@@ -1,4 +1,5 @@
-class Background {
+import { Layer } from './Layer.js';
+export class Background {
     constructor(game) {
         this.game = game;
         this.image1 = document.getElementById('layer1');

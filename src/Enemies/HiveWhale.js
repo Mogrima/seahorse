@@ -1,4 +1,5 @@
-class HiveWhale extends Enemy {
+import { Enemy } from './Enemy.js';
+export class HiveWhale extends Enemy {
     constructor(game) {
         super(game);
         this.width = 400;

@@ -1,4 +1,4 @@
-class Projectile {
+export class Projectile {
     constructor(game, x, y) {
         this.game = game;
         this.x = x;

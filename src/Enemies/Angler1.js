@@ -1,4 +1,6 @@
-class Angler1 extends Enemy {
+import { Enemy } from './Enemy.js';
+
+export class Angler1 extends Enemy {
     constructor(game) {
         super(game);
         this.width = 228;
