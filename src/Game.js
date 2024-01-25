@@ -10,6 +10,7 @@ import { HiveWhale } from './Enemies/HiveWhale.js';
 import { LuckyFish } from './Enemies/LuckyFish.js';
 import { Stalker } from './Enemies/Stalker.js';
 import { BulbWhale } from './Enemies/BulbWhale.js';
+import { MoonFish } from './Enemies/MoonFish.js';
 import { FireExplosion } from './Explosions/FireExplosion.js';
 import { SmokeExplosion } from './Explosions/SmokeExplosion.js';
 import { Background } from './UI/Background.js';
@@ -116,6 +117,9 @@ export class Game {
                     if (enemy.lives <= 0) {
                         enemy.markedForDeletion = true; // удаляем врага
                         this.addExplosion(enemy);
+
+                        if (enemy.type === 'moonfish') this.player.enterPowerUp();
+                        
                         if (enemy.type === 'hive') {
                             for (let i = 0; i < 5; i++) {
                                 this.enemies.push(new Drone(this,
@@ -151,6 +155,7 @@ export class Game {
         else if (randomize < 0.6) this.enemies.push(new Angler2(this));
         else if (randomize < 0.7) this.enemies.push(new HiveWhale(this));
         else if (randomize < 0.8) this.enemies.push(new BulbWhale(this));
+        else if (randomize < 0.9) this.enemies.push(new MoonFish(this));
         else this.enemies.push(new LuckyFish(this));
 
     }
