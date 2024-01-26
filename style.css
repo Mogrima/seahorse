@@ -10,12 +10,12 @@ html {
 }
 
 #canvas1 {
-    border: 5px solid black;
+    border: 5px solid #514811;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #4d79bc;
+    background: #060B24;
     max-width: 100%;
     max-height: 100%;
     font-family: 'Bangers', cursive; /* Подключаем шрифт Bangers */
@@ -25,18 +25,72 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
+    color: #A89A45;
     transform: translate(-50%, -50%);
-    background: #4d79bc;
+    background: #060B24;
     max-width: 100%;
     max-height: 100%;
 }
 
 .startButton {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 16px;
+    padding: 10px 0;
+    font-family: 'Bangers', cursive;
+    font-size: 26px;
+    text-align: center;
+    background-color: #A87745;
+    border: 5px solid #514811;
+    cursor: pointer;
 }
+
+.startButton:hover {
+    background-color: rgb(155, 82, 9);
+}
+
+h1 {
+    margin-bottom: 16px;
+    padding-top: 16px;
+    font-size: 50px;
+    font-family: 'Bangers', cursive;
+    color: #A87745;
+    text-align: center;
+    text-shadow: 1px 1px 2px white;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-top: 16px;
+    font-family: 'Mina', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    list-style-type: none;
+}
+
+li {
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #A89A45;
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    /* display: inline-block; */
+    width: 30px;
+    height: 30px;
+    background-image: url("./Assets/preview2.png");
+    background-size: contain;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+  }
 
 #layer1,
 #layer2,
