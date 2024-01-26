@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем игровое поле перед следующей анимацией
         game.draw(ctx);
         game.update(deltaTime);
-        lastTime = currentTime;
+        lastTime = performance.now();
         requestAnimationFrame(animate);
         // console.log(deltaTime);
     }
@@ -31,6 +31,7 @@ window.addEventListener('load', function () {
 
     function startGame() {
         startDisplay.style.display = 'none';
+        lastTime = 0;
         game.restart();
         animate(0);
       }
