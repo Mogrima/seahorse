@@ -66,9 +66,6 @@ export class Game {
         if (this.gameTime > this.timeLimit) this.gameOver = true;
 
         // FPS
-        if (this.fpsCount === 0 && deltaTime !== 0) {
-            this.fpsCount = Math.floor(1000 / deltaTime);
-        }
         if (this.timerFpsDisplay > this.intervalFpsDisplay) {
             this.fpsCount = Math.floor(1000 / deltaTime);
             this.timerFpsDisplay = 0;
