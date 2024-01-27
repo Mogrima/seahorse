@@ -28,6 +28,8 @@ html {
     color: #A89A45;
     transform: translate(-50%, -50%);
     background: #060B24;
+    width: 1500px;
+    height: 500px;
     max-width: 100%;
     max-height: 100%;
 }
