@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import { Game } from './src/Game.js';
 
@@ -34,7 +34,7 @@ window.addEventListener('load', function () {
         lastTime = 0;
         game.restart();
         animate(0);
-      }
+    }
 
     startButton.addEventListener('click', startGame);
 });
