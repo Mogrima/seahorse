@@ -65,7 +65,7 @@ Fonts
 
 Unlicense
 
-[1]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview.png
-[2]:https://github.com/Mogrima/seahorse/blob/master/Assets/whale.png
-[3]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview2.png
+[1]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview/preview.png
+[2]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview/whale.png
+[3]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview/preview2.png
 
