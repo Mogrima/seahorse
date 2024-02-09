@@ -1,8 +1,14 @@
 # Seahorse game
+<img src="https://img.shields.io/badge/JavaScript-004524?style=for-the-badge&logo=javascript&logoColor=yellow" alt="JavaScript"> <img src="https://img.shields.io/badge/Canvas-6495ed?style=for-the-badge&logo=html5&logoColor=#E34F26" alt="Canvas">
+<img src="https://img.shields.io/badge/HTML5-004524?style=for-the-badge&logo=html5&logoColor=#E34F26" alt="HTML5">
+<img src="https://img.shields.io/badge/CSS3-004524?style=for-the-badge&logo=css3&logoColor=#E34F26" alt="css3">
+
+## Demo
 ![Изображение][1]
+
 Морской конёк пробирается к своему убежищу сквозь плывущих ему навстречу механизированных рыб.
 
-## Игровая механика
+## Game mechanics
 В игре 8 типа врагов, каждый из которых имеет свое количество жизней, очков и другие особенности:
 - Два вида удильщика
 - Кит-улий
@@ -27,17 +33,37 @@
 
 Игра завершится при достижении игрового таймера 30 секунд. Победа или проигрыш будет зависеть от количества набранных очков.
 
-## Управление
+## Control
 Морской конек перемещается вверх-вниз при помощи клавиш-стрелок на клавиатуре, стрельба осуществляется при нажатии пробела.
 
-## Как поиграть
+## How to play
 1. Открыть игру в браузере можно по [ссылке](https://mogrima.github.io/seahorse/)
 2. Или скачать архив с игрой из репозитория. Для того, чтобы запустить игру локально:
-  * Убедиться, что на ПК установлена node.js
-  * Открыть консоль в корне проекта и набрать команду:
-  ```node server.js ```
+   * Убедиться, что на ПК установлена node.js
+   * Открыть консоль в корне проекта и набрать команду:
+    ```node server.js ```
+   * Если страница браузера не откроется автоматически, это можно сделать самостоятельно, просто указав в адресной строке: ```http://127.0.0.1:8125/```
 
+  ## Acknowledgments
+Lessons and support:
 
+<img src="https://img.shields.io/badge/Franks laboratory -ffd700?style=for-the-badge&logo=youtube&logoColor=#FF0000" alt="Franks laboratory ">
+
+Sounds:
+
+<img src="https://img.shields.io/badge/Franks laboratory -ffd700?style=for-the-badge&logo=youtube&logoColor=#FF0000" alt="Franks laboratory ">
+
+Sprites and background:
+
+<img src="https://img.shields.io/badge/Franks laboratory -ffd700?style=for-the-badge&logo=youtube&logoColor=#FF0000" alt="Franks laboratory ">
+
+Fonts
+
+<img src="https://img.shields.io/badge/Bangers -ffd700?style=for-the-badge&logo=googlefonts&logoColor=#4285F4" alt="Bangers "> <img src="https://img.shields.io/badge/Mina -ffd700?style=for-the-badge&logo=googlefonts&logoColor=#4285F4" alt="Mina ">
+
+## License
+
+Unlicense
 
 [1]:https://github.com/Mogrima/seahorse/blob/master/Assets/preview.png
 [2]:https://github.com/Mogrima/seahorse/blob/master/Assets/whale.png
